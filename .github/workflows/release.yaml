@@ -42,7 +42,7 @@ jobs:
       - name: Build Jar
         run: |
           echo Version now: ${VERSION}
-          clojure -X:build :lib cc.delboni/helix-scratch :version "${VERSION}"
+          clojure -X:build :lib cc.delboni/helix-scratch :version \"${VERSION}\"
 
       - name: Deploy on clojars
         run: clojure -X:deploy
