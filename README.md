@@ -5,7 +5,7 @@ Minimal Helix Scratch Template.
 # TL;DR
 To use this template:
 ```bash
-  clojure -X:new :template cc.delboni/helix-scratch :name myusername/mynewproject
+  clojure -Sdeps '{:deps {cc.delboni/helix-scratch {:git/url "https://github.com/rafaeldelboni/helix-scratch" :git/sha "8e4eb30" :git/tag "v0.1.1"}}}' -X:new :template cc.delboni/helix-scratch :name myusername/mycoolsite
 ```
 
 # Requirements
@@ -31,13 +31,13 @@ as `:alias` into your local `~/.clojure/deps.edn` file:
 
 ## Usage
 
-### Remote
+### Git Remote
 ```bash
   # traditional install
-  clojure -A:somealias -Tnew create :template cc.delboni/helix-scratch :name myusername/mynewproject
+  clojure -Sdeps '{:deps {cc.delboni/helix-scratch {:git/url "https://github.com/rafaeldelboni/helix-scratch" :git/sha "8e4eb30" :git/tag "v0.1.1"}}}' -Tnew create :template cc.delboni/helix-scratch :name myusername/mynewproject
 
   # optimal install
-  clojure -X:new :template cc.delboni/helix-scratch :name myusername/mynewproject
+  clojure -Sdeps '{:deps {cc.delboni/helix-scratch {:git/url "https://github.com/rafaeldelboni/helix-scratch" :git/sha "8e4eb30" :git/tag "v0.1.1"}}}' -X:new :template cc.delboni/helix-scratch :name myusername/mycoolsite
 ```
 
 ### Local
