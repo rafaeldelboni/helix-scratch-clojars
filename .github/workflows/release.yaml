@@ -16,6 +16,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Write release version
+        run: |
+          TAG=${{github.ref_name}}
+          echo "VERSION=${TAG:1}" >> $GITHUB_ENV
+
       - name: Prepare java
         uses: actions/setup-java@v3
         with:
@@ -35,7 +40,7 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build Jar
-        run: clojure -X:build :lib cc.delboni/helix-scratch :version '${{github.ref_name}:1}'
+        run: clojure -X:build :lib cc.delboni/helix-scratch :version '${VERSION}'
 
       - name: Deploy on clojars
         run: clojure -X:deploy
