@@ -40,12 +40,10 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build Jar
-        run: |
-          echo Version now: ${VERSION}
-          clojure -X:build :lib cc.delboni/helix-scratch :version \"${VERSION}\"
+        run: clojure -X:build :lib cc.delboni/helix-scratch :version \"${VERSION}\"
 
       - name: Deploy on clojars
-        run: clojure -X:deploy
+        run: clojure -X:deploy :lib cc.delboni/helix-scratch :version \"${VERSION}\"
         env:
           CLOJARS_USERNAME: ${{ vars.CLOJARS_USERNAME }}
           CLOJARS_PASSWORD: ${{ secrets.CLOJARS_PASSWORD }}

@@ -2,6 +2,14 @@
 
 Minimal Helix Scratch Template.
 
+# TL;DR
+To use this template:
+```bash
+  clojure -X:new :template cc.delboni/helix-scratch :name myusername/mynewproject
+```
+
+# Requirements
+
 ## Install deps-new
 To you use this template you need to have installed `deps-new` in your workflow.
 
@@ -42,16 +50,18 @@ Clone this repo, navigate into it's folder and then run:
   clojure -Sdeps '{:deps {cc.delboni/helix-scratch {:local/root "./"}}}' -X:new :template cc.delboni/helix-scratch :name myusername/mycoolsite
 ```
 
+# Contributing
+
 ## Build / Deploy
 
 ```bash
   # Build
   clj -X:build :lib cc.delboni/helix-scratch :version '"0.1.0"'
   # Deploy
-  env CLOJARS_USERNAME=username CLOJARS_PASSWORD=clojars-token clj -X:deploy
+  env CLOJARS_USERNAME=username CLOJARS_PASSWORD=clojars-token clj -X:deploy :lib delboni/helix-scratch :version '"0.1.0"'
 ```
 
-## License
+# License
 
 Copyright © 2023 Rafael Delboni
 
